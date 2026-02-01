@@ -1,0 +1,258 @@
+/* ---------- GLOBAL RESET & BASE ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Work Sans", "Noto Sans Devanagari", sans-serif;
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 105, 180, 0.25),
+      transparent 60%
+    ),
+    linear-gradient(135deg, #1a001f, #2b0033, #000);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+
+/* ---------- CONTAINER ---------- */
+.container {
+  max-width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  visibility: hidden;
+  position: relative;
+  overflow: hidden;
+}
+
+/* All main sections */
+.container > div {
+  position: absolute;
+  inset: 0;
+  top: 20vh;
+  padding: 0 1rem;
+}
+
+/* ---------- SECTION POSITIONING ---------- */
+.container div.six {
+  top: 10vh;
+  z-index: 2;
+}
+
+.container div.seven,
+.container div.eight {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+.one {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.2;
+}
+
+.two {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.three {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+/* ---------- CHAT BOX ---------- */
+.four .text-box {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 14px 16px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+}
+
+.text-box p {
+  margin: 0;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.text-box span {
+  visibility: hidden;
+}
+
+.text-box .fake-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: linear-gradient(135deg, #2b8cff, #5fb3ff);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* ---------- IDEAS ---------- */
+.five p {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  position: absolute;
+  inset: 0;
+}
+
+.idea-3 strong {
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.five .idea-5 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.idea-5 span,
+.idea-6 span,
+.wish-hbd span {
+  display: inline-block;
+}
+
+.idea-6 span {
+  font-size: clamp(6rem, 15vw, 15rem);
+}
+
+/* ---------- IMAGE SECTION ---------- */
+.six {
+  position: relative;
+}
+
+.six img {
+  max-width: min(45%, 280px);
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ---------- BALLOONS ---------- */
+.baloons img {
+  position: absolute;
+  width: 160px;
+  opacity: 0.9;
+}
+
+.baloons img:nth-child(even) {
+  left: 8%;
+}
+
+.baloons img:nth-child(odd) {
+  right: 8%;
+}
+
+.baloons img:nth-child(3n) {
+  left: 30%;
+}
+
+/* ---------- FLOATING DOTS ---------- */
+.eight svg {
+  width: 22px;
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
+}
+
+/* (kept your color positions intact) */
+.eight svg:nth-child(1) { top: 7vh; left: 5vw; fill: #bd6ecf; }
+.eight svg:nth-child(2) { top: 23vh; left: 35vw; fill: #7dd175; }
+.eight svg:nth-child(3) { top: 33vh; left: 23vw; fill: #349d8b; }
+.eight svg:nth-child(4) { top: 43vh; left: 57vw; fill: #347a9d; }
+.eight svg:nth-child(5) { top: 68vh; left: 7vw; fill: #c66053; }
+.eight svg:nth-child(6) { top: 42vh; left: 77vw; fill: #bfaa40; }
+.eight svg:nth-child(7) { top: 68vh; left: 83vw; fill: #e3bae8; }
+.eight svg:nth-child(8) { top: 86vh; left: 37vw; fill: #8762cb; }
+.eight svg:nth-child(9) { top: 94vh; left: 87vw; fill: #9a90da; }
+
+/* ---------- WISH TEXT ---------- */
+.wish-hbd {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0;
+}
+
+.wish h5 {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+/* ---------- FINAL SECTION ---------- */
+.nine p {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 300;
+}
+
+#replay {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-small {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* ---------- MOBILE TWEAKS ---------- */
+@media (max-width: 480px) {
+  .six img {
+    max-width: 65%;
+  }
+
+  .baloons img {
+    width: 120px;
+  }
+
+  .text-box .fake-btn {
+    bottom: -42px;
+  }
+}
+body::before {
+  content: "❤ 💕 💖 💘 💗";
+  position: fixed;
+  inset: 0;
+  font-size: 6rem;
+  opacity: 0.05;
+  letter-spacing: 3rem;
+  line-height: 8rem;
+  pointer-events: none;
+  animation: floatHearts 30s linear infinite;
+}
+
+@keyframes floatHearts {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
