@@ -1,9 +1,12 @@
 /* =========================================
-   ULTRA MODERN ROMANTIC UI/UX
-   FULL MOBILE FRIENDLY CSS
+   COMPLETE BUG FREE MODERN ROMANTIC CSS
+   Fully Responsive + Mobile Friendly
 ========================================= */
 
-/* ---------- RESET ---------- */
+/* =========================================
+   RESET
+========================================= */
+
 *,
 *::before,
 *::after {
@@ -14,52 +17,89 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   font-family: "Work Sans", "Noto Sans Devanagari", sans-serif;
+  color: #ffffff;
   overflow-x: hidden;
-  color: #fff;
-  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
 
   background:
-    radial-gradient(circle at top left,
-      rgba(255, 105, 180, 0.2),
-      transparent 30%),
-    radial-gradient(circle at bottom right,
-      rgba(168, 85, 247, 0.2),
-      transparent 35%),
-    linear-gradient(145deg,
+    radial-gradient(
+      circle at top left,
+      rgba(255, 105, 180, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(168, 85, 247, 0.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
       #09020f,
-      #18041f,
-      #000);
+      #17051f,
+      #000000
+    );
 
   -webkit-font-smoothing: antialiased;
-  position: relative;
 }
 
-/* ---------- BACKGROUND LIGHT ---------- */
+/* =========================================
+   BACKGROUND EFFECTS
+========================================= */
+
 body::before {
   content: "";
   position: fixed;
   inset: 0;
 
   background:
-    radial-gradient(circle,
-      rgba(255, 255, 255, 0.07) 1px,
-      transparent 1px);
+    radial-gradient(
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    );
 
   background-size: 40px 40px;
 
-  opacity: 0.25;
+  opacity: 0.2;
 
-  animation: bgMove 18s linear infinite;
+  animation: backgroundMove 18s linear infinite;
 
   pointer-events: none;
   z-index: -2;
 }
 
-@keyframes bgMove {
+body::after {
+  content: "";
+
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  top: -200px;
+  right: -150px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 105, 180, 0.18),
+      transparent 70%
+    );
+
+  filter: blur(60px);
+
+  animation: glowMove 8s ease-in-out infinite alternate;
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes backgroundMove {
   from {
     transform: translateY(0);
   }
@@ -69,32 +109,13 @@ body::before {
   }
 }
 
-/* ---------- FLOATING HEARTS ---------- */
-body::after {
-  content: "❤ 💖 💕 💘 💗";
-  position: fixed;
-  inset: 0;
-
-  font-size: 5rem;
-
-  opacity: 0.04;
-
-  letter-spacing: 3rem;
-  line-height: 8rem;
-
-  animation: heartsFloat 30s linear infinite;
-
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes heartsFloat {
+@keyframes glowMove {
   from {
-    transform: translateY(0);
+    transform: scale(1);
   }
 
   to {
-    transform: translateY(-200px);
+    transform: scale(1.2) translateY(40px);
   }
 }
 
@@ -104,21 +125,19 @@ body::after {
 
 .container {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   overflow: hidden;
-  visibility: hidden;
+  visibility: visible;
 }
 
-/* ---------- ALL SECTIONS ---------- */
+/* =========================================
+   SECTION LAYOUT
+========================================= */
 
-.container>div {
-  position: absolute;
-  inset: 0;
-
-  top: 15vh;
-
-  padding: 2rem;
+.container > div {
+  width: 100%;
+  min-height: 100dvh;
 
   display: flex;
   flex-direction: column;
@@ -126,6 +145,11 @@ body::after {
   justify-content: center;
 
   text-align: center;
+
+  padding:
+    80px 20px;
+
+  position: relative;
 }
 
 /* =========================================
@@ -133,18 +157,20 @@ body::after {
 ========================================= */
 
 .one {
-  font-size: clamp(3rem, 7vw, 6rem);
-  font-weight: 800;
+  font-size: clamp(2.8rem, 7vw, 6rem);
   line-height: 1.1;
+  font-weight: 800;
   letter-spacing: -2px;
-
   margin-bottom: 1rem;
 }
 
 .one span {
-  background: linear-gradient(90deg,
-      #fff,
-      #ff8cc8);
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #ff8bc7
+    );
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -152,41 +178,34 @@ body::after {
 
 .two {
   font-size: clamp(1rem, 2vw, 1.3rem);
-
-  max-width: 700px;
-
   line-height: 1.8;
-
   opacity: 0.85;
-
-  font-weight: 300;
+  max-width: 700px;
 }
 
 .three {
   font-size: clamp(2rem, 5vw, 4rem);
-
-  font-weight: 700;
-
   line-height: 1.2;
+  font-weight: 700;
 }
 
 /* =========================================
    GLASS EFFECT
 ========================================= */
 
-.glass,
 .four .text-box,
 .six img {
-  background: rgba(255, 255, 255, 0.08);
+  background:
+    rgba(255, 255, 255, 0.08);
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
   box-shadow:
-    0 10px 40px rgba(255, 105, 180, 0.15),
-    0 0 80px rgba(168, 85, 247, 0.08);
+    0 10px 40px rgba(255, 105, 180, 0.15);
 }
 
 /* =========================================
@@ -194,38 +213,19 @@ body::after {
 ========================================= */
 
 .four .text-box {
-  width: min(90%, 650px);
+  width: min(92%, 650px);
 
   padding: 2rem;
 
   border-radius: 28px;
 
   position: relative;
-
-  overflow: hidden;
-}
-
-.four .text-box::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(120deg,
-      rgba(255, 255, 255, 0.12),
-      transparent 40%);
-
-  pointer-events: none;
 }
 
 .text-box p {
-  text-align: left;
-
+  font-size: 1rem;
   line-height: 1.9;
-
-  font-size: 1.05rem;
-
+  text-align: left;
   color: rgba(255, 255, 255, 0.92);
 }
 
@@ -233,73 +233,77 @@ body::after {
   visibility: hidden;
 }
 
-/* ---------- BUTTON ---------- */
+.fake-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-.text-box .fake-btn {
-  position: absolute;
+  margin-top: 1.5rem;
 
-  right: 18px;
-  bottom: 18px;
-
-  padding: 10px 18px;
+  padding:
+    12px 20px;
 
   border-radius: 999px;
 
   background:
-    linear-gradient(135deg,
+    linear-gradient(
+      135deg,
       #ff4fa3,
-      #9b5cff);
+      #9b5cff
+    );
 
-  color: #fff;
-
-  font-weight: 600;
+  color: #ffffff;
 
   font-size: 0.9rem;
+  font-weight: 600;
+
+  text-decoration: none;
 
   box-shadow:
     0 10px 30px rgba(255, 79, 163, 0.35);
 }
 
 /* =========================================
-   IDEAS SECTION
+   IDEAS
 ========================================= */
 
+.five {
+  position: relative;
+}
+
 .five p {
-  position: absolute;
-  inset: 0;
+  font-size: clamp(1.8rem, 6vw, 3rem);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  line-height: 1.4;
 
-  font-size: clamp(2rem, 5vw, 3rem);
-
-  font-weight: 700;
-
-  line-height: 1.3;
+  padding: 0 1rem;
 }
 
 .idea-3 strong {
-  padding: 10px 18px;
+  display: inline-block;
 
-  border-radius: 18px;
+  padding:
+    10px 18px;
+
+  border-radius: 16px;
 
   background:
-    rgba(255, 255, 255, 0.1);
+    rgba(255, 255, 255, 0.08);
 
   border:
-    1px solid rgba(255, 255, 255, 0.08);
+    1px solid rgba(255, 255, 255, 0.1);
 }
 
 .idea-5 {
-  font-size: clamp(3rem, 8vw, 6rem) !important;
-
+  font-size: clamp(3rem, 10vw, 6rem);
   font-weight: 900;
 
   background:
-    linear-gradient(90deg,
-      #fff,
-      #ff78b8);
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #ff78b8
+    );
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -312,7 +316,7 @@ body::after {
 }
 
 .idea-6 span {
-  font-size: clamp(5rem, 15vw, 12rem);
+  font-size: clamp(4rem, 14vw, 12rem);
 }
 
 /* =========================================
@@ -320,19 +324,21 @@ body::after {
 ========================================= */
 
 .six {
+  position: relative;
   z-index: 2;
 }
 
 .six img {
-  width: min(75vw, 320px);
+  width: min(85vw, 320px);
 
-  border-radius: 30px;
+  border-radius: 28px;
 
-  padding: 10px;
+  padding: 8px;
 
   object-fit: cover;
 
-  transition: transform 0.5s ease;
+  transition:
+    transform 0.4s ease;
 }
 
 .six img:hover {
@@ -343,18 +349,42 @@ body::after {
    BALLOONS
 ========================================= */
 
+.baloons {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
 .baloons img {
   position: absolute;
 
-  width: 140px;
+  width: 110px;
 
   opacity: 0.85;
 
-  filter:
-    drop-shadow(0 0 25px rgba(255, 79, 163, 0.45));
-
   animation:
-    balloonFloat 8s ease-in-out infinite;
+    balloonFloat 7s ease-in-out infinite;
+}
+
+.baloons img:nth-child(1) {
+  top: 8%;
+  left: 5%;
+}
+
+.baloons img:nth-child(2) {
+  top: 15%;
+  right: 8%;
+}
+
+.baloons img:nth-child(3) {
+  bottom: 12%;
+  left: 18%;
+}
+
+.baloons img:nth-child(4) {
+  bottom: 18%;
+  right: 12%;
 }
 
 @keyframes balloonFloat {
@@ -363,7 +393,7 @@ body::after {
   }
 
   50% {
-    transform: translateY(-30px);
+    transform: translateY(-25px);
   }
 
   100% {
@@ -371,81 +401,21 @@ body::after {
   }
 }
 
-.baloons img:nth-child(odd) {
-  animation-duration: 10s;
-}
-
 /* =========================================
-   PARTICLES
+   FLOATING SVG PARTICLES
 ========================================= */
 
+.eight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
 .eight svg {
-  width: 22px;
-
+  width: 18px;
+  opacity: 0.7;
   position: absolute;
-
-  visibility: hidden;
-
-  opacity: 0.8;
-
-  filter:
-    drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
-}
-
-/* ---------- PARTICLE COLORS ---------- */
-
-.eight svg:nth-child(1) {
-  top: 7vh;
-  left: 5vw;
-  fill: #ff7dc2;
-}
-
-.eight svg:nth-child(2) {
-  top: 23vh;
-  left: 35vw;
-  fill: #9b5cff;
-}
-
-.eight svg:nth-child(3) {
-  top: 33vh;
-  left: 23vw;
-  fill: #ff96d0;
-}
-
-.eight svg:nth-child(4) {
-  top: 43vh;
-  left: 57vw;
-  fill: #d4a5ff;
-}
-
-.eight svg:nth-child(5) {
-  top: 68vh;
-  left: 7vw;
-  fill: #ff5da8;
-}
-
-.eight svg:nth-child(6) {
-  top: 42vh;
-  left: 77vw;
-  fill: #ffd4ef;
-}
-
-.eight svg:nth-child(7) {
-  top: 68vh;
-  left: 83vw;
-  fill: #e3bae8;
-}
-
-.eight svg:nth-child(8) {
-  top: 86vh;
-  left: 37vw;
-  fill: #8762cb;
-}
-
-.eight svg:nth-child(9) {
-  top: 94vh;
-  left: 87vw;
-  fill: #9a90da;
 }
 
 /* =========================================
@@ -453,17 +423,19 @@ body::after {
 ========================================= */
 
 .wish-hbd {
-  font-size: clamp(3rem, 8vw, 5rem);
+  font-size: clamp(2.8rem, 10vw, 5rem);
 
   line-height: 1.1;
 
   font-weight: 900;
 
   background:
-    linear-gradient(90deg,
-      #fff,
+    linear-gradient(
+      90deg,
+      #ffffff,
       #ff9fd2,
-      #d8b4ff);
+      #d9b4ff
+    );
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -472,13 +444,13 @@ body::after {
 .wish h5 {
   margin-top: 1rem;
 
-  font-size: clamp(1rem, 2vw, 1.8rem);
+  font-size: clamp(1rem, 2vw, 1.6rem);
+
+  line-height: 1.7;
 
   font-weight: 300;
 
   opacity: 0.85;
-
-  line-height: 1.7;
 }
 
 /* =========================================
@@ -486,43 +458,47 @@ body::after {
 ========================================= */
 
 .nine p {
-  font-size: clamp(1.1rem, 3vw, 2rem);
+  font-size: clamp(1rem, 2vw, 1.8rem);
+
+  line-height: 1.8;
 
   font-weight: 300;
 
-  line-height: 1.8;
+  padding: 0 1rem;
 }
 
 #replay {
-  margin-top: 1.5rem;
-
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
-  padding: 14px 26px;
+  margin-top: 2rem;
+
+  padding:
+    14px 24px;
 
   border-radius: 999px;
 
   background:
-    linear-gradient(135deg,
+    linear-gradient(
+      135deg,
       #ff4fa3,
-      #9b5cff);
+      #9b5cff
+    );
 
-  color: #fff;
+  color: #ffffff;
+
+  font-weight: 600;
 
   cursor: pointer;
 
-  transition: all 0.3s ease;
-
-  box-shadow:
-    0 10px 30px rgba(255, 79, 163, 0.35);
+  transition:
+    transform 0.3s ease;
 }
 
 #replay:hover {
   transform:
-    translateY(-4px) scale(1.03);
+    translateY(-3px) scale(1.03);
 }
 
 /* =========================================
@@ -530,183 +506,100 @@ body::after {
 ========================================= */
 
 .footer {
-  position: absolute;
-
-  bottom: 20px;
-
   width: 100%;
 
   text-align: center;
 
-  font-size: 0.9rem;
+  padding:
+    20px;
+
+  font-size: 0.8rem;
 
   opacity: 0.6;
 }
 
 .footer-small {
-  font-size: 0.75rem;
-
+  font-size: 0.7rem;
   opacity: 0.5;
 }
 
 /* =========================================
-   MOBILE RESPONSIVE
+   TABLET
 ========================================= */
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
 
-  /* ---------- SECTIONS ---------- */
-
-  .container>div {
-    top: 10vh;
-
-    padding: 1.2rem;
+  .container > div {
+    padding:
+      70px 16px;
   }
 
-  /* ---------- HERO ---------- */
-
   .one {
-    font-size: clamp(2.4rem, 11vw, 4rem);
-
-    line-height: 1.1;
-
+    font-size: 2.5rem;
     letter-spacing: -1px;
   }
 
   .two {
-    font-size: 1rem;
-
+    font-size: 0.95rem;
     line-height: 1.7;
-
-    max-width: 95%;
   }
 
   .three {
-    font-size: clamp(1.8rem, 8vw, 3rem);
+    font-size: 1.9rem;
   }
 
-  /* ---------- TEXT BOX ---------- */
-
   .four .text-box {
-    width: 92%;
-
+    width: 94%;
     padding: 1.4rem;
-
     border-radius: 24px;
   }
 
   .text-box p {
-    font-size: 0.95rem;
-
-    line-height: 1.8;
-  }
-
-  .text-box .fake-btn {
-    position: relative;
-
-    right: auto;
-    bottom: auto;
-
-    margin-top: 1rem;
-
-    display: inline-flex;
-  }
-
-  /* ---------- IDEAS ---------- */
-
-  .five p {
-    font-size: clamp(1.6rem, 7vw, 2.5rem);
-
-    padding: 0 1rem;
-
-    text-align: center;
+    font-size: 0.92rem;
   }
 
   .idea-5 {
-    font-size: clamp(2.8rem, 14vw, 4rem) !important;
+    font-size: 3rem;
   }
-
-  .idea-6 span {
-    font-size: clamp(4rem, 20vw, 8rem);
-  }
-
-  /* ---------- IMAGE ---------- */
-
-  .six img {
-    width: min(85vw, 260px);
-  }
-
-  /* ---------- BALLOONS ---------- */
-
-  .baloons img {
-    width: 75px;
-  }
-
-  /* ---------- PARTICLES ---------- */
-
-  .eight svg {
-    width: 14px;
-  }
-
-  /* ---------- WISH ---------- */
 
   .wish-hbd {
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-size: 2.7rem;
   }
 
   .wish h5 {
     font-size: 1rem;
   }
 
-  /* ---------- FINAL ---------- */
+  .six img {
+    width: 85vw;
+  }
 
-  .nine p {
-    font-size: 1rem;
-
-    padding: 0 1rem;
+  .baloons img {
+    width: 70px;
   }
 
   #replay {
-    padding: 12px 22px;
-
-    font-size: 0.95rem;
-  }
-
-  /* ---------- FOOTER ---------- */
-
-  .footer {
-    bottom: 10px;
-
-    font-size: 0.72rem;
-  }
-
-  .footer-small {
-    font-size: 0.65rem;
-  }
-
-  /* ---------- HEARTS ---------- */
-
-  body::after {
-    font-size: 2.8rem;
-
-    letter-spacing: 1.2rem;
-
-    line-height: 4rem;
+    font-size: 0.9rem;
   }
 }
 
 /* =========================================
-   EXTRA SMALL DEVICES
+   SMALL MOBILE
 ========================================= */
 
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
+
+  .container > div {
+    padding:
+      60px 14px;
+  }
 
   .one {
     font-size: 2.2rem;
   }
 
   .two {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
   }
 
   .three {
@@ -714,42 +607,64 @@ body::after {
   }
 
   .four .text-box {
-    width: 94%;
-
     padding: 1.1rem;
-
     border-radius: 20px;
   }
 
   .text-box p {
     font-size: 0.88rem;
+    line-height: 1.8;
   }
 
   .idea-5 {
-    font-size: 3rem !important;
+    font-size: 2.8rem;
+  }
+
+  .idea-6 span {
+    font-size: 4rem;
   }
 
   .wish-hbd {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
 
   .wish h5 {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
   }
 
   .six img {
-    width: 85vw;
-
     max-width: 230px;
   }
 
   .baloons img {
-    width: 65px;
+    width: 55px;
   }
 
   #replay {
-    font-size: 0.9rem;
+    width: auto;
+    padding:
+      12px 20px;
 
-    padding: 11px 20px;
+    font-size: 0.88rem;
   }
+
+  .footer {
+    font-size: 0.68rem;
+  }
+}
+
+/* =========================================
+   PERFORMANCE FIXES
+========================================= */
+
+img,
+svg {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+button,
+a,
+div {
+  -webkit-tap-highlight-color: transparent;
 }
